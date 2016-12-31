@@ -1,0 +1,11 @@
+predicates
+hcf(integer,integer,integer)
+
+clauses
+hcf(A,B,HCF) :- A = B, HCF = A.
+hcf(A,B,HCF) :- B = 0, HCF = A.
+hcf(A,B,HCF) :- A < B, A <> 0, Y = B mod A, hcf(A,Y,HCF).
+hcf(A,B,HCF) :- A > B, B <> 0, Y = A mod B, hcf(B,Y,HCF).
+
+goal
+hcf(11,7,X).

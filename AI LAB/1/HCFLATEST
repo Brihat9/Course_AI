@@ -1,0 +1,9 @@
+PREDICATES
+hcf(integer,integer,integer)
+
+CLAUSES
+hcf(A,B,C) :- (A mod B) = 0, C = B.
+hcf(A,B,C) :- (A mod B) > 0, D = A mod B, hcf(B, D, C).
+
+GOAL
+hcf(8,6,X).

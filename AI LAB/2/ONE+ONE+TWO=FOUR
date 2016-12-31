@@ -1,0 +1,49 @@
+DOMAINS
+int_list=integer*
+
+PREDICATES
+solution(int_list)
+member(integer,int_list)
+
+CLAUSES
+solution([]).
+
+solution([O,N,E,T,W,F,U,R]):-
+member(C1,[0,1,2]),
+member(C2,[0,1,2]),
+member(C3,[0,1,2]),
+% C1, C2, C3 will have values 0 or 1 or 2
+
+member(O,[0,1,2,3,4,5,6,7,8,9]),
+member(N,[0,1,2,3,4,5,6,7,8,9]),
+member(E,[0,1,2,3,4,5,6,7,8,9]),
+member(T,[0,1,2,3,4,5,6,7,8,9]),
+member(W,[0,1,2,3,4,5,6,7,8,9]),
+member(F,[0,1,2,3,4,5,6,7,8,9]),
+member(U,[0,1,2,3,4,5,6,7,8,9]),
+member(R,[0,1,2,3,4,5,6,7,8,9]),
+% O,N,E,T,W,F,U,R will have values between 0 and 9.
+
+% The values of O,N,E,T,W,F,U,R must not be equal.
+O<>N, O<>E, O<>T, O<>W, O<>F, O<>U, O<>R,
+N<>E, N<>T, N<>W, N<>F, N<>U, N<>R,
+E<>T, E<>W, E<>F, E<>U, E<>R,
+T<>W, T<>F, T<>U, T<>R,
+W<>F, W<>U, W<>R,
+F<>U, F<>R,
+U<>R,
+
+% Computation for solution
+%O=8,
+E+E+O=R+10*C1,
+N+N+W+C1=U+10*C2,
+O+O+T+C2=O+10*C3,
+F=C3.
+
+member(X, [X|_]).
+member(X, [_|Z]):-
+member(X,Z).
+
+GOAL
+solution([O,N,E,T,W,F,U,R]).
+%solution([8,0,3,2,6,1,7,4]).

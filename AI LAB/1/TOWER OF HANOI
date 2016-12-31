@@ -1,0 +1,20 @@
+DOMAINS
+peg = string
+
+PREDICATES
+towerofhanoi(integer)
+solve(integer,peg,peg,peg)
+display(peg,peg)
+
+CLAUSES
+towerofhanoi(N):-solve(N,"A","B","C").
+
+solve(1,A,_,C):- display(A,C).
+
+solve(N,A,B,C):- N1 = N - 1, solve(N1,A,C,B), display(A,C), solve(N1,B,A,C).
+
+display(Peg1, Peg2):- write("Move a disk from ", Peg1, " to ", Peg2), nl.
+
+
+GOAL
+towerofhanoi(3).

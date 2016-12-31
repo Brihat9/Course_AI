@@ -1,0 +1,13 @@
+DOMAINS
+list = integer*
+
+PREDICATES
+a(list,list,list) 
+
+
+CLAUSES
+a([],L1,L1).
+a([H|T],L2,[H|T1]) :- a(T,L2,T1).
+
+GOAL
+a([1,2,3],[4,5,6],New_List).

@@ -1,0 +1,14 @@
+predicates
+start
+hcf(integer,integer,integer)
+
+clauses
+start :- write("enter two numbers"), nl, readint(A), readint(B), hcf(A,B,HCF), write("HCF is ",HCF), nl.
+
+hcf(A,B,HCF) :- A = B, HCF = A.
+hcf(A,B,HCF) :- B = 0, HCF = A.
+hcf(A,B,HCF) :- A < B, A <> 0, Y = B mod A, hcf(A,Y,HCF).
+hcf(A,B,HCF) :- A > B, B <> 0, Y = A mod B, hcf(B,Y,HCF).
+
+goal
+start.

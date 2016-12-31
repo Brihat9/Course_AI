@@ -1,0 +1,16 @@
+PREDICATES
+supports(symbol,symbol)
+top(symbol,symbol)
+above(symbol,symbol)
+touch(symbol,symbol)
+
+CLAUSES
+supports(Y,X) :- top(X,Y).
+top(X,Y) :- above(X,Y), touch(X,Y).
+
+above(cup,book).
+touch(cup,book).
+
+
+GOAL
+supports(book,cup).

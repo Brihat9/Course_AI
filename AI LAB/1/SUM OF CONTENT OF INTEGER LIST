@@ -1,0 +1,12 @@
+DOMAINS
+list = integer*
+
+PREDICATES
+sum(list,integer)
+
+CLAUSES
+sum([],0).
+sum([H|T],SUM) :- sum(T,SUM1), SUM = H + SUM1.
+
+GOAL
+sum([1,2,3,4],X).

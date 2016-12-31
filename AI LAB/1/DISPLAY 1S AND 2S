@@ -1,0 +1,18 @@
+DOMAINS
+list=integer*
+
+PREDICATES
+start
+display(list)
+
+
+CLAUSES
+start :- write("[ "), display([1,2,4,5,2,4,5,1,1]).
+
+display([H|T]) :- H = 1, write(H), write(" "), display(T).
+display([H|T]) :- H = 2, write(H), write(" "), display(T).
+display([H|T]) :- H <> 1, H <> 2, display(T).
+display([]) :- write("]"), nl.
+
+GOAL
+start.

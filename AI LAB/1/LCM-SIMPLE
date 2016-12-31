@@ -1,0 +1,14 @@
+predicates
+hcf(integer,integer,integer)
+lcm(integer,integer,integer)
+
+clauses
+lcm(A,B,LCM) :- hcf(A,B,HCF), LCM = A * B / HCF.
+
+hcf(A,B,HCF) :- A = B, HCF = A.
+hcf(A,B,HCF) :- B = 0, HCF = A.
+hcf(A,B,HCF) :- A < B, A <> 0, Y = B mod A, hcf(A,Y,HCF).
+hcf(A,B,HCF) :- A > B, B <> 0, Y = A mod B, hcf(B,Y,HCF).
+
+goal
+lcm(2,8,X).
